@@ -37,8 +37,8 @@
 
 <script>
 
-const apiKey = "285738102c6294877648a306c32f529e";
-const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+const apiUrl = "https://weatherapp-backend-k8yst07ya-vishalsingh3026s-projects.vercel.app/weather?city=";
+
 
 const searchBox = document.querySelector(".search input");
 const searchBtn = document.querySelector(".search button");
@@ -46,7 +46,8 @@ const weatherIcon = document.querySelector(".weather-icon");
 
 async function checkWeather(city) {
     if (city.trim() === "") return;
-    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    
+    const response = await fetch(apiUrl + city);
     if (!response.ok) {
         alert("City not found");
         return;
